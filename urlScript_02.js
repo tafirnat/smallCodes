@@ -1,5 +1,5 @@
 function newSelectedText(){
-    let sTxt, msg, index, input, sObj, _newObj = {};
+    let sTxt, msg, index, newDef,oldDef, sObj, _newObj = {},mp3src='https://cdn.pixabay.com/download/audio/2021/12/03/audio_19b9dafe07.mp3?';
     sTxt = window.getSelection().toString().trim();
     sObj = JSON.parse(window.localStorage.getItem('@ri5: neuWorte'));
         if (sObj) {
@@ -12,17 +12,19 @@ function newSelectedText(){
         };
     if (typeof index == 'undefined') {
         _newObj.kelime = sTxt;
-        input = prompt(`✅ "${sTxt}" kelimesi listeye eklenecek.`,'Kelimeyi tanimla...');
-        _newObj.tanim = input;_newObj.date=new Date();
+        newDef = prompt(`✅ "${sTxt}" kelimesi listeye eklenecek.`,'Kelimeyi tanimla...');
+        _newObj.tanim = newDef;_newObj.date=new Date();
         if (!sObj) sObj = [];
         sObj.push(_newObj);
     } else {
-        input = prompt(`⚠️ ${sTxt} kelimesi listede mevcut.`, sObj[index].tanim);
-        sObj[index].tanim = input;sObj[index].date=new Date();
+        oldDef=sObj[index].tanim;
+        newDef = prompt(`⚠️ ${sTxt} kelimesi listede mevcut.`,oldDef );
+        sObj[index].tanim = newDef;sObj[index].date=new Date();
     };
-    if (!!input) {
-        sObj[index].date= new Date();
-        window.localStorage.setItem('@ri5: neuWorte', JSON.stringify(sObj));};   
+    if (!!newDef && newDef != oldDef){
+        window.localStorage.setItem('@ri5: neuWorte', JSON.stringify(sObj));
+        new Audio(mp3src).play();
+    };
     }
     window.newSelectedText=newSelectedText
     newSelectedText()
