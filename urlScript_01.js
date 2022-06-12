@@ -1,7 +1,8 @@
  function newSelectedText(){
     let sTxt, msg, index, input, sObj, _newWortObj = {
         kelime: "",
-        tanim: 'Kelimeye dair varsa tanimi gir...'
+        tanim: 'Kelimeye dair varsa tanimi gir...',
+        date: new Date(),
     };
     sTxt = window.getSelection().toString().trim();
     sObj = JSON.parse(window.localStorage.getItem('@ri5: neuWorte'));
