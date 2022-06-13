@@ -7,13 +7,12 @@ function newSelectedText(){
         if(sObj[sTxt] == undefined) throw `notFound`
         for(subKey in sObj[sTxt]) {oldDef = sObj[sTxt][subKey]}
         newDef = prompt(`⚠️ ${sTxt} kelimesi listede mevcut.`,oldDef );
-        if(newDef==null || oldDef == newDef) return 
         delete sObj[sTxt][subKey] 
     } catch (error) {
          newDef = prompt(`✅ "${sTxt}" kelimesi listeye eklenecek.`,'Kelimeyi tanimla...');
-        if(newDef==null) return 
         if (!sObj) sObj = {};
     }
+        if(newDef==null || oldDef == newDef) return 
         subKey=(new Date()).toLocaleString().replaceAll(' ','_');
         sObj[sTxt]={}
         sObj[sTxt][subKey]= newDef;
@@ -22,3 +21,4 @@ function newSelectedText(){
     };
     window.newSelectedText=newSelectedText
     newSelectedText()
+
