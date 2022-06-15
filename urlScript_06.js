@@ -9,7 +9,7 @@ function newSelectedText(){
         newDef = prompt(`⚠️ ${sTxt} kelimesi listede mevcut.`,oldDef );
         delete sObj[sTxt][subKey] 
     } catch (error) {
-         newDef = prompt(`✅ "${sTxt}" kelimesi listeye eklenecek.`,'Kelimeyi tanimla...');
+         newDef = prompt(`✅ "${sTxt}" kelimesi listeye eklenecek.`,'Kelimeyi tanimla...').trim();
         if (!sObj) sObj = {};
     }
         if(newDef==null || oldDef == newDef) return 
