@@ -14,7 +14,8 @@ function newSelectedText(){
     }
         if(newDef==null || oldDef == newDef) return 
         subKey=(new Date()).toLocaleString().replaceAll(' ','_');
-        sObj[sTxt]={}
+        sObj[sTxt]={};
+        newDef= !!newDef?newDef:'Kelimeyi tanimla...'
         sObj[sTxt][subKey]= newDef;
         window.localStorage.setItem('@ri5: neuWorte', JSON.stringify(sObj));
         new Audio(mp3src).play();
