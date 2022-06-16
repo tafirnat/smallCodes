@@ -19,7 +19,7 @@ function newSelectedText(){
     newDef = newDef == temp || !newDef.trim() ? undefined : newDef;
         key=(new Date()).toLocaleString().replaceAll(' ','_');
         valueObj[sTxt]={};
-        valueObj[sTxt][key]= !!newDef?newDef:false;
+        valueObj[sTxt][key]= !!newDef?newDef:null;
         window.localStorage.setItem(ad, JSON.stringify({name:ad ,date:new Date().toJSON(),value:valueObj}));
         new Audio(mp3).play();
     };
