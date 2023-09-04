@@ -1,1 +1,1 @@
-a
+alert(ENV_RESTKEY)
